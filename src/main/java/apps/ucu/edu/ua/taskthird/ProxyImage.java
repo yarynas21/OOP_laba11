@@ -1,6 +1,6 @@
 package apps.ucu.edu.ua.taskthird;
 
-public class ProxyImage implements MyImage{
+public class ProxyImage implements MyImage {
     private RealImage realImage;
     private String filename;
 
