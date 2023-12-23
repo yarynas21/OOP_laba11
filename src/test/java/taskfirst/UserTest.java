@@ -33,6 +33,8 @@ public class UserTest {
     @Test
     public void testUser() {
         Assertions.assertEquals(user.toString(),
-                "User(name=Yaryna, age=18, gender=FEMALE, weight=0.0, height=0.0, grades=[90, 91, 99, 100])");
+                "User(name=Yaryna, age=18, "
+                + "gender=FEMALE, weight=0.0, height=0.0, "
+                + "grades=[90, 91, 99, 100])");
     }
 }
