@@ -6,14 +6,14 @@ import lombok.Singular;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-enum Gender {
-    MALE,
-    FEMALE
-}
-
 @ToString
 @SuperBuilder
 public class User {
+    public enum Gender {
+        MALE,
+        FEMALE
+    }
+
     private String name;
     private int age;
     private Gender gender;
