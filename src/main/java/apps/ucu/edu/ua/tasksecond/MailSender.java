@@ -21,7 +21,8 @@ public class MailSender {
         MailjetResponse response;
         String text = mailInfo.generate();
 
-        client = new MailjetClient(API_KEY, API_SECRET_KEY, new ClientOptions("v3.1"));
+        client = new MailjetClient(API_KEY, API_SECRET_KEY, 
+        new ClientOptions("v3.1"));
         request = new MailjetRequest(Emailv31.resource)
                 .property(Emailv31.MESSAGES, new JSONArray()
                         .put(new JSONObject()
@@ -30,13 +31,17 @@ public class MailSender {
                                         .put("Name", "Yaryna"))
                                 .put(Emailv31.Message.TO, new JSONArray()
                                         .put(new JSONObject()
-                                                .put("Email", "savkiv.pn@ucu.edu.ua")
+                                                .put("Email", 
+                                                "savkiv.pn@ucu.edu.ua")
                                                 .put("Name", "Yaryna")))
-                                .put(Emailv31.Message.SUBJECT, "Greetings from Mailjet.")
+                                .put(Emailv31.Message.SUBJECT,
+                                "Greetings from Mailjet.")
                                 .put(Emailv31.Message.TEXTPART, text)
                                 .put(Emailv31.Message.HTMLPART, 
-                                        "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>"
-                                        + "Mailjet</a>!</h3><br />May the delivery force be with you!")
+                                        "<h3>Dear passenger 1, welcome "
+                                        + "to <a href='https://www.mailjet.com/'>"
+                                        + "Mailjet</a>!</h3><br />May the "
+                                        + "delivery force be with you!")
                                 .put(Emailv31.Message.CUSTOMID, "AppGettingStartedTest")));
         response = client.post(request);
         System.out.println(response.getStatus());
