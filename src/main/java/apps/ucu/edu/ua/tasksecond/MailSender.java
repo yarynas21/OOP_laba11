@@ -11,8 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class MailSender {
-    private static String API_KEY = "bc71e700058bacc0185a873b8d9ad7d3";
-    private static String API_SECRET_KEY = "462dca10c3016f1bdc7f96f56c79e2be";
+    private static String API_KEY = System.getenv("MAILJET_API_KEY");
+    private static String API_SECRET_KEY = System.getenv("MAILJET_API_SECRET_KEY");
 
     public static void sendMail(MailInfo mailInfo) throws MailjetException, 
             MailjetSocketTimeoutException {
