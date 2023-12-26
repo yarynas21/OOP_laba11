@@ -39,10 +39,12 @@ public class MailSender {
                                 .put(Emailv31.Message.TEXTPART, text)
                                 .put(Emailv31.Message.HTMLPART, 
                                         "<h3>Dear passenger 1, welcome "
-                                        + "to <a href='https://www.mailjet.com/'>"
+                                        + "to <a href='https://www."
+                                        + "mailjet.com/'>"
                                         + "Mailjet</a>!</h3><br />May the "
                                         + "delivery force be with you!")
-                                .put(Emailv31.Message.CUSTOMID, "AppGettingStartedTest")));
+                                .put(Emailv31.Message.CUSTOMID, 
+                                "AppGettingStartedTest")));
         response = client.post(request);
         System.out.println(response.getStatus());
         System.out.println(response.getData());
