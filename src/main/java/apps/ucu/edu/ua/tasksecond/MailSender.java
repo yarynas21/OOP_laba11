@@ -11,9 +11,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class MailSender {
-    private static String API_KEY = System.getenv("MAILJET_API_KEY");
-    private static String API_SECRET_KEY = System.getenv("MAILJET_API_SECRET_KEY");
-
     public static void sendMail(MailInfo mailInfo) throws MailjetException, 
             MailjetSocketTimeoutException {
         MailjetClient client;
@@ -21,7 +18,8 @@ public class MailSender {
         MailjetResponse response;
         String text = mailInfo.generate();
 
-        client = new MailjetClient(API_KEY, API_SECRET_KEY, 
+        client = new MailjetClient("bc71e700058bacc0185a873b8d9ad7d3",
+        "462dca10c3016f1bdc7f96f56c79e2be", 
         new ClientOptions("v3.1"));
         request = new MailjetRequest(Emailv31.resource)
                 .property(Emailv31.MESSAGES, new JSONArray()
@@ -48,13 +46,5 @@ public class MailSender {
         response = client.post(request);
         System.out.println(response.getStatus());
         System.out.println(response.getData());
-    }
-
-    public static String getApiKey() {
-        return API_KEY;
-    }
-
-    public static String getApiSecretKey() {
-        return API_SECRET_KEY;
     }
 }
